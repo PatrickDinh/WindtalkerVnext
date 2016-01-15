@@ -1,5 +1,5 @@
-System.register(['angular2/router', 'angular2/platform/browser', 'angular2/core', './app'], function(exports_1) {
-    var router, browser_1, core_1, app_1;
+System.register(['angular2/router', 'angular2/platform/browser', 'angular2/core', './app', 'angular2/http'], function(exports_1) {
+    var router, browser_1, core_1, app_1, http_1;
     return {
         setters:[
             function (router_1) {
@@ -13,12 +13,16 @@ System.register(['angular2/router', 'angular2/platform/browser', 'angular2/core'
             },
             function (app_1_1) {
                 app_1 = app_1_1;
+            },
+            function (http_1_1) {
+                http_1 = http_1_1;
             }],
         execute: function() {
             browser_1.bootstrap(app_1.App, [
                 router.ROUTER_PROVIDERS,
                 core_1.bind(router.APP_BASE_HREF).toValue(location.pathname),
-                core_1.provide(router.LocationStrategy, { useClass: router.HashLocationStrategy })
+                core_1.provide(router.LocationStrategy, { useClass: router.HashLocationStrategy }),
+                http_1.HTTP_PROVIDERS
             ]);
         }
     }
