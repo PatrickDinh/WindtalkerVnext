@@ -32,7 +32,7 @@
   },
 
   "commands": {
-    "web": "Microsoft.AspNet.Server.Kestrel",
+    "web": "Microsoft.AspNet.Server.Kestrel --ASPNET_ENV development",
     "ef": "EntityFramework.Commands"
   },
 
