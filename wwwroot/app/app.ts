@@ -1,7 +1,15 @@
 import {Component} from 'angular2/core';
+import * as router from 'angular2/router';
+import { Routes, APP_ROUTES } from './routes.config';
 
 @Component({
     selector: 'windtalker-app',
-    template: '<h1>My First Angular 2 App</h1>'
+    templateUrl: './app/app.tpl.html',
+    directives: [router.ROUTER_DIRECTIVES]
 })
-export class AppComponent { }
+
+@router.RouteConfig(APP_ROUTES)
+
+export class App { 
+     public routes = Routes;
+}

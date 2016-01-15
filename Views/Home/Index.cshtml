@@ -1,35 +1,31 @@
-<html>
+@{
+    ViewData["Title"] = "Home Page";
+}
 
-  <head>
-    <title>Angular 2 QuickStart</title>
+<cache vary-by="@Context.Request.Path">
+    <windtalker-app>
+        Loading...
+    </windtalker-app>
+</cache>
 
-    <!-- 1. Load libraries -->
+@section scripts {
     <script src="~/lib/angular2/bundles/angular2-polyfills.js"></script>
     <script src="~/lib/systemjs/dist/system.src.js"></script>
     <script src="~/lib/rxjs/bundles/Rx.js"></script>
     <script src="~/lib/angular2/bundles/angular2.dev.js"></script>
     <script src="~/lib/angular2/bundles/router.dev.js"></script>
     <script src="~/lib/angular2/bundles/http.dev.js"></script>
-
-    <!-- 2. Configure SystemJS -->
     <script>
-      System.config({
-        packages: {        
-          app: {
-            format: 'register',
-            defaultExtension: 'js'
-          }
-        }
-      });
-      System.import('app/boostrap')
-            .then(null, console.error.bind(console));
+        System.config({
+            packages: {        
+                app: {
+                    format: 'register',
+                    defaultExtension: 'js'
+                }
+            }
+        });
+        System.import('app/boostrap')
+              .then(null, console.error.bind(console));
+
     </script>
-
-  </head>
-
-  <!-- 3. Display the application -->
-  <body>
-    <windtalker-app>Loading...</windtalker-app>
-  </body>
-
-</html>
+}
