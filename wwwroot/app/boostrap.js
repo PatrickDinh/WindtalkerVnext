@@ -17,7 +17,8 @@ System.register(['angular2/router', 'angular2/platform/browser', 'angular2/core'
         execute: function() {
             browser_1.bootstrap(app_1.App, [
                 router.ROUTER_PROVIDERS,
-                core_1.bind(router.APP_BASE_HREF).toValue(location.pathname)
+                core_1.bind(router.APP_BASE_HREF).toValue(location.pathname),
+                core_1.provide(router.LocationStrategy, { useClass: router.HashLocationStrategy })
             ]);
         }
     }
