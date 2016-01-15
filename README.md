@@ -13,3 +13,5 @@ Tech stack:
 - EF7 (SQLite)
 - Signal R
 ```
+
+The same app is built in Nancy and Angular 1 can be found [here](https://github.com/PatrickDinh/Windtalker)
