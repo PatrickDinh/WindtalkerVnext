@@ -12,6 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using WindtalkerVnext.Models;
 using WindtalkerVnext.Services;
+using Newtonsoft.Json.Serialization;
 
 namespace WindtalkerVnext
 {
@@ -51,7 +52,11 @@ namespace WindtalkerVnext
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
 
-            services.AddMvc();
+            services.AddMvc()
+                    .AddJsonOptions(options => 
+                    {
+                        options.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+                    });
 
             // Add application services.
             services.AddTransient<IEmailSender, AuthMessageSender>();
@@ -100,6 +105,8 @@ namespace WindtalkerVnext
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+            
+            
         }
 
         // Entry point for the application.
